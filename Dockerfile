@@ -1,13 +1,16 @@
 # Use official PHP 8.3 image with Apache
-FROM php:7.4-apache
+FROM php:8.3-apache
 
 # Enable URL rewriting for CodeIgniter
 RUN a2enmod rewrite
 
+# Install mysqli and pdo_mysql extensions
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
 # Copy your application code into the container
 COPY . /var/www/html/
 
-# Set permissions (optional but recommended)
+# Set permissions (optional)
 RUN chown -R www-data:www-data /var/www/html/
 
 # Expose port 80 (Render maps it automatically)

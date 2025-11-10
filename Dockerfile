@@ -1,5 +1,5 @@
 # Use official PHP 8.3 image with Apache
-FROM php:8.3-apache
+FROM php:7.4-apache
 
 # Enable URL rewriting for CodeIgniter
 RUN a2enmod rewrite
